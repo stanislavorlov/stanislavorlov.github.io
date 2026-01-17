@@ -25,7 +25,12 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Outfit', sans-serif;
     color: var(--text-white);
     font-weight: 600;
@@ -99,12 +104,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 800;
+}
+
+.logo .first-name {
     color: var(--text-white);
 }
 
-.logo span {
+.logo .last-name {
     color: var(--accent-cyan);
 }
 
@@ -452,19 +460,20 @@ footer {
     .about-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .navbar {
         padding: 20px;
     }
-    
+
     .nav-links {
-        display: none; /* Mobile nav would go here */
+        display: none;
+        /* Mobile nav would go here */
     }
-    
+
     .hero-content h1 {
         font-size: 2.5rem;
     }
-    
+
     .research-background {
         width: 100%;
         opacity: 0.15;
