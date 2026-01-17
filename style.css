@@ -342,6 +342,65 @@ h6 {
     color: var(--text-slate-light);
 }
 
+/* Ukraine Section */
+.ukraine-banner {
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ukraine-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.flag {
+    width: 120px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.flag .blue {
+    background-color: #0057b7;
+    height: 50%;
+}
+
+.flag .yellow {
+    background-color: #ffd700;
+    height: 50%;
+}
+
+.ukraine-content .text h2 {
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+}
+
+.ukraine-content .text p {
+    margin-bottom: 25px;
+    max-width: 600px;
+    color: var(--text-slate-light);
+}
+
+.ukraine-actions {
+    display: flex;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .ukraine-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ukraine-actions {
+        justify-content: center;
+    }
+}
+
 /* Projects Section */
 .projects-grid {
     display: grid;
