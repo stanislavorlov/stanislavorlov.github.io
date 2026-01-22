@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stanislav Orlov - Software Engineer & AI Researcher</title>
+    <title>Stanislav Orlov | Software Engineer & AI Researcher</title>
     <meta name="description"
         content="Portfolio of Stanislav Orlov - Software Engineer specializing in AI, robotics, and distributed systems">
 
@@ -16,6 +16,9 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
     <style>
         * {
             margin: 0;
@@ -24,15 +27,15 @@
         }
 
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-tertiary: #1a1a1a;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --bg-primary: #0f172a;
+            --bg-secondary: #0a192f;
+            --bg-tertiary: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.6);
         }
 
         body {
@@ -51,7 +54,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -148,8 +151,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.4), var(--bg-primary)),
-                radial-gradient(circle, rgba(10, 10, 10, 0.2) 0%, var(--bg-primary) 80%);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), var(--bg-primary)),
+                radial-gradient(circle, rgba(15, 23, 42, 0.2) 0%, var(--bg-primary) 80%);
             pointer-events: none;
             z-index: 1;
         }
@@ -514,6 +517,30 @@
             background: #dc2626;
         }
 
+        /* Contact Section Specific */
+        .contact-container {
+            max-width: 700px !important;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-card {
+            padding: 4rem 3rem !important;
+            border-radius: 2rem !important;
+        }
+
+        .section-title.centered {
+            justify-content: center;
+        }
+
+        .section-title.centered::after {
+            display: none;
+        }
+
+        .section-title.centered span {
+            margin-right: 15px;
+        }
+
         /* Footer */
         .footer {
             background: var(--bg-secondary);
@@ -555,9 +582,13 @@
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
+            padding: 2rem 0 4rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            opacity: 0.8;
         }
 
         /* Responsive */
@@ -1186,15 +1217,19 @@
 
     <!-- Contact Section -->
     <section id="contact" class="section">
-        <div class="container">
-            <div class="sponsor-card glass fade-in" style="background: var(--bg-secondary);">
-                <div class="section-title">
+        <div class="container contact-container">
+            <div class="contact-card glass fade-in" style="background: var(--bg-secondary);">
+                <div class="section-title centered">
                     <span>06.</span>
                     <h2>Get In Touch</h2>
                 </div>
-                <p class="section-subtitle">Whether you're interested in distributed systems architecture or the future
-                    of drone swarms, I'm always open to discussing new ideas and collaborations.</p>
-                <div class="footer-links" style="justify-content: center; margin-bottom: 2rem;">
+                <p class="section-subtitle"
+                    style="margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Whether you're interested in distributed systems architecture, the future of drone swarms, or just
+                    want to chat about tech, I'm always open to discussing new ideas, research collaborations, or
+                    speaking opportunities. Feel free to reach out via any of the channels below!
+                </p>
+                <div class="footer-links" style="justify-content: center; margin-bottom: 2.5rem;">
                     <a href="https://github.com/stanislavorlov" target="_blank" rel="noopener noreferrer"><i
                             class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/stanislav-orlov-95569499/" target="_blank"
@@ -1204,18 +1239,21 @@
                     <a href="https://twitter.com/stasorlov21" target="_blank" rel="noopener noreferrer"><i
                             class="fab fa-twitter"></i></a>
                 </div>
-                <a href="mailto:stanislav.orlov@softserveinc.com" class="btn btn-primary">Say Hello 👋</a>
+                <a href="mailto:stasorlov21@gmail.com" class="btn btn-primary">Say Hello 👋</a>
             </div>
         </div>
     </section>
-    <div class="container">
+
+    <footer class="container">
         <div class="footer-bottom">
-            <p>© 2024 Stanislav Orlov. All rights reserved.</p>
+            <p>© <span id="currentYear"></span> Stanislav Orlov. All rights reserved.</p>
         </div>
-    </div>
     </footer>
 
     <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
         // Fetch GitHub data
         fetch('https://api.github.com/users/stanislavorlov')
             .then(response => response.json())
