@@ -14,6 +14,34 @@
     --accent-hover: #0ea5e9;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.6);
+    --nav-bg: rgba(15, 23, 42, 0.95);
+    --nav-border: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --section-divider: rgba(255, 255, 255, 0.1);
+    --hero-overlay-start: rgba(15, 23, 42, 0.4);
+    --hero-overlay-end: #0f172a;
+    /* Same as bg-primary */
+    --hover-bg: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
+    --bg-tertiary: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent: #0284c7;
+    --accent-hover: #0369a1;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --nav-bg: rgba(248, 250, 252, 0.95);
+    --nav-border: rgba(15, 23, 42, 0.1);
+    --card-border: rgba(15, 23, 42, 0.1);
+    --section-divider: rgba(15, 23, 42, 0.1);
+    --hero-overlay-start: rgba(248, 250, 252, 0.4);
+    --hero-overlay-end: #f8fafc;
+    /* Same as bg-primary */
+    --hover-bg: rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -32,10 +60,10 @@ html {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(15, 23, 42, 0.95);
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--nav-border);
 }
 
 .nav-content {
@@ -78,6 +106,23 @@ html {
     color: var(--text-primary);
     cursor: pointer;
     font-size: 1.5rem;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
 }
 
 /* Hero Section */
@@ -129,8 +174,8 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), var(--bg-primary)),
-        radial-gradient(circle, rgba(15, 23, 42, 0.2) 0%, var(--bg-primary) 80%);
+    background: linear-gradient(to bottom, var(--hero-overlay-start), var(--hero-overlay-end)),
+        radial-gradient(circle, var(--hero-overlay-start) 0%, var(--hero-overlay-end) 80%);
     pointer-events: none;
     z-index: 1;
 }
@@ -238,7 +283,7 @@ html {
     display: block;
     width: 300px;
     height: 1px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--section-divider);
     margin-left: 20px;
 }
 

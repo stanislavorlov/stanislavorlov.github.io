@@ -40,9 +40,14 @@
                 <a href="#contact">Contact</a>
             </div>
 
-            <button class="mobile-menu-btn" onclick="toggleMenu()">
-                <i class="fas fa-bars" id="menuIcon"></i>
-            </button>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars" id="menuIcon"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
