@@ -8,6 +8,7 @@
     --bg-primary: #0f172a;
     --bg-secondary: #0a192f;
     --bg-tertiary: #1e293b;
+    --bg-overlay: rgba(15, 23, 42, 0.85);
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --accent: #38bdf8;
@@ -20,7 +21,6 @@
     --section-divider: rgba(255, 255, 255, 0.1);
     --hero-overlay-start: rgba(15, 23, 42, 0.4);
     --hero-overlay-end: #0f172a;
-    /* Same as bg-primary */
     --hover-bg: rgba(255, 255, 255, 0.05);
 }
 
@@ -28,6 +28,7 @@
     --bg-primary: #f8fafc;
     --bg-secondary: #f1f5f9;
     --bg-tertiary: #ffffff;
+    --bg-overlay: rgba(248, 250, 252, 0.85);
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --accent: #0284c7;
@@ -40,13 +41,16 @@
     --section-divider: rgba(15, 23, 42, 0.1);
     --hero-overlay-start: rgba(248, 250, 252, 0.4);
     --hero-overlay-end: #f8fafc;
-    /* Same as bg-primary */
     --hover-bg: rgba(0, 0, 0, 0.05);
 }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
+    background-image: url('research_bg.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
     color: var(--text-primary);
     line-height: 1.6;
 }
@@ -132,7 +136,7 @@ html {
     display: flex;
     align-items: center;
     position: relative;
-    background: url('assets/hero_bg.png') no-repeat center center/cover;
+    background: url('hero_bg.png') no-repeat center center/cover;
 }
 
 .hero-content {
@@ -250,6 +254,9 @@ html {
 /* Sections */
 .section {
     padding: 4rem 2rem;
+    background: var(--bg-overlay);
+    position: relative;
+    z-index: 2;
 }
 
 .container {
@@ -295,9 +302,7 @@ html {
 }
 
 /* Projects */
-.projects-section {
-    background: var(--bg-secondary);
-}
+
 
 .projects-grid {
     display: grid;
@@ -444,9 +449,7 @@ html {
 }
 
 /* Sponsorship */
-.sponsor-section {
-    background: radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.1), transparent 50%);
-}
+
 
 .sponsor-card {
     background: var(--bg-secondary);
@@ -669,9 +672,7 @@ html {
 }
 
 /* About Section */
-.about-section {
-    background: var(--bg-primary);
-}
+
 
 .about-grid {
     display: grid;
@@ -751,9 +752,7 @@ html {
 }
 
 /* Expertise Section */
-.expertise-section {
-    background: var(--bg-primary);
-}
+
 
 .expertise-grid {
     display: grid;
@@ -787,9 +786,7 @@ html {
 }
 
 /* Ukraine Section */
-.ukraine-section {
-    background: var(--bg-secondary);
-}
+
 
 .ukraine-banner {
     padding: 3rem;
