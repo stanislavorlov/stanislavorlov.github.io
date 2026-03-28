@@ -59,6 +59,23 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Text Links */
+p a, li a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+p a:visited, p a:active,
+li a:visited, li a:active {
+    color: var(--accent);
+}
+
+p a:hover, li a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
 /* Navigation */
 .navbar {
     position: fixed;
