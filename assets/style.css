@@ -60,18 +60,22 @@ html {
 }
 
 /* Text Links */
-p a, li a {
+p a,
+li a {
     color: var(--accent);
     text-decoration: none;
     transition: color 0.3s;
 }
 
-p a:visited, p a:active,
-li a:visited, li a:active {
+p a:visited,
+p a:active,
+li a:visited,
+li a:active {
     color: var(--accent);
 }
 
-p a:hover, li a:hover {
+p a:hover,
+li a:hover {
     color: var(--accent-hover);
     text-decoration: underline;
 }
@@ -391,6 +395,9 @@ p a:hover, li a:hover {
     border-radius: 0.25rem;
     font-size: 0.875rem;
     font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
 }
 
 .project-link {
@@ -686,6 +693,17 @@ p a:hover, li a:hover {
     .tier.featured {
         transform: scale(1);
     }
+
+    .section-title h2 {
+        font-size: 2rem;
+        white-space: normal;
+    }
+
+    .section-title::after {
+        flex: 1;
+        min-width: 50px;
+        width: auto;
+    }
 }
 
 /* About Section */
@@ -791,7 +809,7 @@ p a:hover, li a:hover {
     border-color: var(--accent);
 }
 
-.expertise-card i {
+.expertise-card>i {
     font-size: 2rem;
     color: var(--accent);
     margin-bottom: 20px;
