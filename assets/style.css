@@ -108,6 +108,11 @@ li a:hover {
     font-size: 1.2rem;
 }
 
+.nav-logo a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
@@ -204,8 +209,15 @@ li a:hover {
 }
 
 @keyframes cursorBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .hero-subtitle {
@@ -297,7 +309,33 @@ li a:hover {
     border-radius: 1rem;
     box-shadow: var(--shadow-lg);
     border: 2px solid rgba(255, 255, 255, 0.1);
-    animation: float 6s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    /*animation: float 1s ease-in-out infinite;*/
+    animation-name: ease-out-back;
+    animation-duration: 1s;
+    /* or any desired duration */
+    animation-timing-function: linear;
+}
+
+@keyframes ease-out-back {
+    0% {
+        transform: translateY(-10px);
+    }
+
+    30% {
+        transform: translateY(0px);
+    }
+
+    60% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 /* Sections */
