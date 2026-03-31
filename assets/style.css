@@ -175,10 +175,14 @@ li a:hover {
     font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #38bdf8 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards, gradientShift 6s ease infinite;
 }
 
 .hero-subtitle {
@@ -270,6 +274,7 @@ li a:hover {
     border-radius: 1rem;
     box-shadow: var(--shadow-lg);
     border: 2px solid rgba(255, 255, 255, 0.1);
+    animation: float 6s ease-in-out infinite;
 }
 
 /* Sections */
@@ -906,4 +911,49 @@ li a:hover {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Hero Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-200 {
+    animation-delay: 200ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+}
+
+.delay-400 {
+    animation-delay: 400ms;
 }
