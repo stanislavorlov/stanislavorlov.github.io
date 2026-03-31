@@ -65,6 +65,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // Typewriter effect for Hero Title
+    const typewriterElement = document.getElementById('typewriter');
+    if (typewriterElement) {
+        const textToType = "Hi, there!";
+        typewriterElement.textContent = "";
+        let count = 0;
+
+        function typeWriter() {
+            if (count < textToType.length) {
+                typewriterElement.textContent += textToType.charAt(count);
+                count++;
+                setTimeout(typeWriter, Math.random() * 80 + 50);
+            }
+        }
+
+        setTimeout(typeWriter, 800);
+    }
 });
 
 // Mobile menu toggle (Global scope for onclick)
