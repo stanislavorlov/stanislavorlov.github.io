@@ -22,6 +22,8 @@ jobs:
           python-version: '3.11'
 
       - name: Fetch latest posts from Hashnode RSS
+        # Hashnode may block automated requests; keep the existing posts and still update projects
+        continue-on-error: true
         run: python fetch_posts.py
 
       - name: Fetch projects tagged 'portfolio' from GitHub
