@@ -1,21 +1,21 @@
 # Stanislav Orlov - Professional Portfolio
 
-Welcome to the source repository for my personal portfolio website. I am a **Lead Software Engineer** with over a decade of experience in the Microsoft .NET stack, currently serving in a senior role at SoftServe. Beyond industrial software engineering, I am a **PhD Researcher** exploring the frontiers of Artificial Intelligence and Swarm Intelligence in autonomous drones.
+Welcome to the source repository for my personal portfolio website. I am a **Software Engineer** with over a decade of experience in the Microsoft .NET stack and distributed systems. Beyond industrial software engineering, I am a **PhD Researcher** exploring the frontiers of Artificial Intelligence and Swarm Intelligence in autonomous drones.
 
 ## 🚀 The Project
 
 This is a premium, single-page application (SPA) designed to showcase the intersection of high-scale backend engineering and academic AI research.
 
 ### ✨ Key Features
-- **Futuristic Aesthetic:** High-end midnight blue theme with glassmorphism and teal accents.
-- **Dynamic UX:** Smooth scrolling, parallax backgrounds, and scroll-triggered animations.
-- **AI-Enhanced:** Features custom AI-generated visualizations of drone swarms.
+- **Clean, Professional Design:** Minimal editorial layout with a single accent color.
+- **Light & Dark Themes:** Follows the system preference, with a manual toggle.
+- **Auto-Updated Blog:** A weekly GitHub Actions workflow pulls the latest posts from Hashnode RSS into `latest-posts.json`.
 - **Responsive:** Optimized for a seamless experience across desktop and mobile devices.
 
 ## 🛠 Tech Stack
 - **Frontend:** Semantic HTML5, Vanilla CSS (Flexbox/Grid), JavaScript (ES6+).
-- **Design:** Modern typography (Inter & Outfit), Glassmorphism, CSS Transitions.
-- **Tools:** Intersection Observer API for scroll animations.
+- **Design:** Inter & JetBrains Mono typography, CSS custom properties for theming.
+- **Automation:** Python + GitHub Actions for fetching blog posts.
 
 ## 🧠 About Me
 

@@ -8,45 +8,51 @@
     <meta name="description"
         content="Portfolio of Stanislav Orlov - Software Engineer specializing in distributed systems, robotics and AI">
 
+    <!-- Apply saved theme before first paint to avoid a flash -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme');
+                var light = window.matchMedia('(prefers-color-scheme: light)').matches;
+                document.documentElement.setAttribute('data-theme', saved || (light ? 'light' : 'dark'));
+            } catch (e) { }
+        })();
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="stylesheet" href="assets/style.css?v=3">
+    <link rel="stylesheet" href="assets/style.css?v=4">
 </head>
 
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-content">
-            <div class="nav-logo">
-                <a href="#">
-                    <i class="fas fa-code"></i>
-                    <span>Stanislav Orlov</span>
-                </a>
-            </div>
+            <a href="#home" class="nav-logo">Stanislav Orlov</a>
 
             <div class="nav-links" id="navLinks">
-                <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#expertise">Expertise</a>
                 <a href="#projects">Projects</a>
-                <a href="#blog">Blog</a>
-                <a href="#sponsor">Sponsor</a>
+                <a href="#blog">Writing</a>
                 <a href="#contact">Contact</a>
             </div>
 
-            <div style="display: flex; gap: 0.5rem; align-items: center;">
-                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+            <div class="nav-actions">
+                <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <button class="icon-btn mobile-menu-btn" onclick="toggleMenu()" aria-label="Open menu">
                     <i class="fas fa-bars" id="menuIcon"></i>
                 </button>
             </div>
@@ -54,333 +60,274 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="terminal-prompt">&gt;</span><span id="typewriter" class="gradient-text"></span><span
-                        class="terminal-cursor">_</span>
-                </h1>
-                <p class="hero-subtitle fade-in delay-100">
+    <header id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text fade-in">
+                <p class="eyebrow">Software Engineer &middot; PhD Researcher</p>
+                <h1 class="hero-title">Stanislav Orlov</h1>
+                <p class="hero-subtitle">
                     I'm a Software Engineer from Ukraine. I design robust, industrial-scale distributed systems and
                     research multi-agent AI to solve complex engineering challenges.
                 </p>
-                <div class="hero-stats fade-in delay-200" id="githubStats">
-                    <div class="stat">
-                        <div class="stat-value" id="repoCount">-</div>
-                        <div class="stat-label">Repositories</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value" id="followers">-</div>
-                        <div class="stat-label">Followers</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value" id="following">-</div>
-                        <div class="stat-label">Following</div>
-                    </div>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">Get in touch</a>
+                    <a href="#projects" class="btn btn-secondary">View projects</a>
                 </div>
-                <div class="hero-actions fade-in delay-300">
+                <div class="hero-social">
                     <a href="https://github.com/stanislavorlov" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-primary">
-                        <i class="fab fa-github"></i>
-                        View GitHub
-                    </a>
-                    <a href="#projects" class="btn btn-secondary">
-                        Explore Projects
-                    </a>
+                        aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/stanislav-orlov-95569499/" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://orcid.org/0009-0008-0680-206X" target="_blank" rel="noopener noreferrer"
+                        aria-label="ORCID"><i class="fab fa-orcid"></i></a>
+                    <a href="https://twitter.com/stasorlov21" target="_blank" rel="noopener noreferrer"
+                        aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <div class="hero-image fade-in delay-400">
-                <img src="assets/profile.jpeg" alt="Profile" class="profile-img" id="profileImage">
+            <div class="hero-image fade-in delay-100">
+                <img src="assets/profile.jpeg" alt="Portrait of Stanislav Orlov" class="profile-img"
+                    id="profileImage">
             </div>
         </div>
-        <div class="hero-overlay"></div>
-    </section>
+    </header>
 
-    <!-- About Section -->
-    <section id="about" class="section about-section">
-        <div class="container">
-            <div class="section-title">
-                <span>01.</span>
-                <h2>About Me</h2>
-            </div>
-            <div class="about-grid">
+    <main>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container split">
+                <div class="section-heading">
+                    <p class="eyebrow">About</p>
+                    <h2>Engineering at scale, researching what's next</h2>
+                </div>
                 <div class="about-text">
                     <p>With over 10 years of experience in Software Engineering, my primary focus is designing and
-                        building
-                        robust, high-performance distributed systems. I specialize in scalable backend architectures,
-                        exploring complex architectural patterns, and leveraging technologies like gRPC to solve
-                        challenging
-                        engineering problems.</p>
+                        building robust, high-performance distributed systems. I specialize in scalable backend
+                        architectures, exploring complex architectural patterns, and leveraging technologies like gRPC
+                        to solve challenging engineering problems.</p>
                     <p>In addition to my core professional work, I am pursuing PhD research at the <a
-                            href="https://nure.ua">Kharkiv National
-                            University
-                            of Radio Electronics</a>, focusing on <strong>Swarm Intelligence in Drones</strong>. This
-                        academic
-                        pursuit
-                        adds another dimension to my expertise, allowing me to bridge the gap between industrial-scale
-                        software engineering and
-                        cutting-edge artificial intelligence.</p>
+                            href="https://nure.ua" target="_blank" rel="noopener noreferrer">Kharkiv National
+                            University of Radio Electronics</a>, focusing on <strong>Swarm Intelligence in
+                            Drones</strong>. This academic pursuit adds another dimension to my expertise, allowing me
+                        to bridge the gap between industrial-scale software engineering and cutting-edge artificial
+                        intelligence.</p>
+
+                    <dl class="facts">
+                        <div>
+                            <dt>10+</dt>
+                            <dd>Years of experience</dd>
+                        </div>
+                        <div>
+                            <dt>PhD</dt>
+                            <dd>Candidate, NURE</dd>
+                        </div>
+                        <div>
+                            <dt>UA</dt>
+                            <dd>Based in Ukraine</dd>
+                        </div>
+                    </dl>
 
                     <ul class="tech-list">
                         <li>Distributed Systems</li>
                         <li>.NET Core / C#</li>
                         <li>Domain-Driven Design</li>
                         <li>Python (AI/ML)</li>
-                        <li>Go (Micro services)</li>
+                        <li>Go (Microservices)</li>
                         <li>Swarm Intelligence</li>
                     </ul>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <h3>10+</h3>
-                        <p>Years Experience</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>PhD</h3>
-                        <p>Candidate</p>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Expertise Section -->
-    <section id="expertise" class="section expertise-section">
-        <div class="container">
-            <div class="section-title">
-                <span>02.</span>
-                <h2>Core Expertise</h2>
-            </div>
-            <div class="expertise-grid">
-                <div class="expertise-card">
-                    <i class="fas fa-server"></i>
-                    <h3>Backend Architecture</h3>
-                    <p>Expertise in .NET Core, Go, Python, gRPC, and DDD to build scalable microservices and distributed
-                        systems.</p>
-                    <div class="project-tech" style="margin-top: 1.5rem; margin-bottom: 0;">
-                        <span class="tech-badge"><i class="fab fa-windows"></i> .NET Core</span>
-                        <span class="tech-badge"><i class="fab fa-golang"></i> Go</span>
-                        <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
-                        <span class="tech-badge"><i class="fas fa-network-wired"></i> gRPC</span>
-                    </div>
+        <!-- Expertise Section -->
+        <section id="expertise" class="section section-alt">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Expertise</p>
+                    <h2>What I work on</h2>
                 </div>
-                <div class="expertise-card">
-                    <i class="fas fa-brain"></i>
-                    <h3>Artificial Intelligence</h3>
-                    <p>Researching autonomous drone swarms using Python and advanced AI algorithms.</p>
-                    <div class="project-tech" style="margin-top: 1.5rem; margin-bottom: 0;">
-                        <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
-                        <span class="tech-badge"><i class="fas fa-robot"></i> AI Algorithms</span>
+                <div class="card-grid card-grid-4">
+                    <div class="card">
+                        <i class="fas fa-server card-icon"></i>
+                        <h3>Backend Architecture</h3>
+                        <p>Expertise in .NET Core, Go, Python, gRPC, and DDD to build scalable microservices and
+                            distributed systems.</p>
+                        <div class="tags">
+                            <span class="tag">.NET Core</span>
+                            <span class="tag">Go</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">gRPC</span>
+                        </div>
                     </div>
-                </div>
-                <div class="expertise-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Full-Stack Proficiency</h3>
-                    <p>Building dynamic, responsive front-ends with Angular and TypeScript.</p>
-                    <div class="project-tech" style="margin-top: 1.5rem; margin-bottom: 0;">
-                        <span class="tech-badge"><i class="fab fa-angular"></i> Angular</span>
-                        <span class="tech-badge"><i class="fab fa-js"></i> TypeScript</span>
+                    <div class="card">
+                        <i class="fas fa-brain card-icon"></i>
+                        <h3>Artificial Intelligence</h3>
+                        <p>Researching autonomous drone swarms using Python and advanced AI algorithms.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">AI Algorithms</span>
+                        </div>
                     </div>
-                </div>
-                <div class="expertise-card">
-                    <i class="fas fa-microchip"></i>
-                    <h3>Performance Engineering</h3>
-                    <p>Specialized in system-wide performance optimization, low-latency architectures, and
-                        high-throughput data processing.</p>
-                    <div class="project-tech" style="margin-top: 1.5rem; margin-bottom: 0;">
-                        <span class="tech-badge"><i class="fas fa-bolt"></i> Low-Latency</span>
-                        <span class="tech-badge"><i class="fas fa-gauge-high"></i> High-Throughput</span>
+                    <div class="card">
+                        <i class="fas fa-code card-icon"></i>
+                        <h3>Full-Stack Proficiency</h3>
+                        <p>Building dynamic, responsive front-ends with Angular and TypeScript.</p>
+                        <div class="tags">
+                            <span class="tag">Angular</span>
+                            <span class="tag">TypeScript</span>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ukraine Support Section -->
-    <section id="ukraine" class="section ukraine-section">
-        <div class="container">
-            <div class="ukraine-banner fade-in">
-                <div class="ukraine-content">
-                    <div class="flag">
-                        <div class="blue"></div>
-                        <div class="yellow"></div>
-                    </div>
-                    <div class="text">
-                        <h2>Stand with Ukraine</h2>
-                        <p>As a Ukrainian engineer, I am committed to supporting my country. Join me in contributing
-                            to reliable organizations providing humanitarian and defense support.</p>
-                        <div class="ukraine-actions">
-                            <a href="https://u24.gov.ua/" class="btn btn-primary" target="_blank">United24</a>
-                            <a href="https://savelife.in.ua/en/" class="btn btn-secondary" target="_blank">Come Back
-                                Alive</a>
+                    <div class="card">
+                        <i class="fas fa-gauge-high card-icon"></i>
+                        <h3>Performance Engineering</h3>
+                        <p>Specialized in system-wide performance optimization, low-latency architectures, and
+                            high-throughput data processing.</p>
+                        <div class="tags">
+                            <span class="tag">Low-Latency</span>
+                            <span class="tag">High-Throughput</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section projects-section">
-        <div class="container">
-            <div class="section-title">
-                <span>03.</span>
-                <h2>Featured Projects</h2>
-            </div>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon gradient-blue">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="project-title">Swarm of Drones using AI</h3>
-                    <p class="project-description">
-                        Autonomous multi-agent drone swarm system utilizing reinforcement learning and distributed AI
-                        algorithms for coordinated flight patterns, obstacle avoidance, and collaborative task
-                        execution.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">TensorFlow</span>
-                        <span class="tech-badge">ROS</span>
-                        <span class="tech-badge">Computer Vision</span>
-                        <span class="tech-badge">Multi-Agent RL</span>
-                    </div>
-                    <a href="https://github.com/stanislavorlov" target="_blank" rel="noopener noreferrer"
-                        class="project-link">
-                        View on GitHub <i class="fas fa-external-link-alt"></i>
-                    </a>
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Projects</p>
+                    <h2>Selected work</h2>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-icon gradient-purple">
-                        <i class="fas fa-chess"></i>
-                    </div>
-                    <h3 class="project-title">Chess Engine using AI</h3>
-                    <p class="project-description">
-                        Advanced chess engine powered by deep learning and Monte Carlo Tree Search (MCTS). Features
-                        position evaluation, move prediction, and adaptive gameplay strategies.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">PyTorch</span>
-                        <span class="tech-badge">Alpha-Beta Pruning</span>
-                        <span class="tech-badge">Neural Networks</span>
-                    </div>
-                    <a href="https://github.com/stanislavorlov" target="_blank" rel="noopener noreferrer"
-                        class="project-link">
-                        View on GitHub <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
+                <!-- Fallback content; replaced by projects.json (repos tagged `portfolio`) in main.js -->
+                <div class="card-grid card-grid-3" id="projectsGrid">
+                    <article class="card project-card">
+                        <i class="fas fa-robot card-icon"></i>
+                        <h3>Swarm of Drones using AI</h3>
+                        <p>
+                            Autonomous multi-agent drone swarm system utilizing reinforcement learning and distributed
+                            AI algorithms for coordinated flight patterns, obstacle avoidance, and collaborative task
+                            execution.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">ROS</span>
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">Multi-Agent RL</span>
+                        </div>
+                        <a href="https://github.com/stanislavorlov/phd-research-swarm-drones" target="_blank"
+                            rel="noopener noreferrer" class="text-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    </article>
 
-                <div class="project-card">
-                    <div class="project-icon gradient-green">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h3 class="project-title">Communication Protocols Research</h3>
-                    <p class="project-description">
-                        In-depth investigation and analysis of modern communication protocols including MQTT, WebRTC,
-                        and custom IoT protocols. Performance benchmarking and security analysis.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">C++</span>
-                        <span class="tech-badge">Network Analysis</span>
-                        <span class="tech-badge">Protocol Design</span>
-                        <span class="tech-badge">IoT</span>
-                    </div>
-                    <a href="https://github.com/stanislavorlov" target="_blank" rel="noopener noreferrer"
-                        class="project-link">
-                        View on GitHub <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <article class="card project-card">
+                        <i class="fas fa-chess card-icon"></i>
+                        <h3>Chess Engine using AI</h3>
+                        <p>
+                            Advanced chess engine powered by deep learning and Monte Carlo Tree Search (MCTS). Features
+                            position evaluation, move prediction, and adaptive gameplay strategies.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">Alpha-Beta Pruning</span>
+                            <span class="tag">Neural Networks</span>
+                        </div>
+                        <a href="https://github.com/stanislavorlov/chess-game" target="_blank"
+                            rel="noopener noreferrer" class="text-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    </article>
+
+                    <article class="card project-card">
+                        <i class="fas fa-network-wired card-icon"></i>
+                        <h3>Communication Protocols Research</h3>
+                        <p>
+                            In-depth investigation and analysis of modern communication protocols including MQTT,
+                            WebRTC, and custom IoT protocols. Performance benchmarking and security analysis.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">Network Analysis</span>
+                            <span class="tag">Protocol Design</span>
+                            <span class="tag">IoT</span>
+                        </div>
+                        <a href="https://github.com/stanislavorlov/binary-serializers-efficiency" target="_blank"
+                            rel="noopener noreferrer" class="text-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Blog Section -->
-    <section id="blog" class="section blog-section">
-        <div class="container">
-            <div class="section-title">
-                <span>04.</span>
-                <h2>Latest Blog Posts</h2>
-            </div>
-
-            <div class="blog-grid" id="blogGrid">
-                <article class="blog-card">
-                    <div class="blog-icon">
-                        <i class="fas fa-book-open"></i>
+        <!-- Blog Section -->
+        <section id="blog" class="section section-alt">
+            <div class="container">
+                <div class="section-heading section-heading-row">
+                    <div>
+                        <p class="eyebrow">Writing</p>
+                        <h2>Latest posts</h2>
                     </div>
-                    <div class="blog-meta">
-                        <span>2026-10-15</span>
-                        <span>•</span>
-                        <span>1 min read</span>
-                    </div>
-                    <h3 class="blog-title">Building an online maps project based on Spatial Graph Routing</h3>
-                    <p class="blog-excerpt">
-                        I'm building a web project to visualize routing algorithms on a simple map of London. The routing engine is built upon custom data structures, spatial indexes, and graph algorithms...
-                    </p>
-                    <a href="https://stanislavorlov.hashnode.dev/building-an-online-maps-project-based-on-spatial-graph-routing" target="_blank" rel="noopener noreferrer"
-                        class="blog-link">Read more →</a>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-icon">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <div class="blog-meta">
-                        <span>2026-01-23</span>
-                        <span>•</span>
-                        <span>4 min read</span>
-                    </div>
-                    <h3 class="blog-title">Communication Protocols for IoT: A Comparative Study</h3>
-                    <p class="blog-excerpt">
-                        Analyzing how modern communication protocols interact with high-performance binary serialization to optimize latency, throughput, and reliability in IoT ecosystems...
-                    </p>
-                    <a href="https://stanislavorlov.hashnode.dev/communication-protocols-for-iot-a-comparative-study"
-                        target="_blank" rel="noopener noreferrer" class="blog-link">Read more →</a>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-icon">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <div class="blog-meta">
-                        <span>2026-01-23</span>
-                        <span>•</span>
-                        <span>6 min read</span>
-                    </div>
-                    <h3 class="blog-title">Deep Dive: Neural Networks in Game AI</h3>
-                    <p class="blog-excerpt">
-                        Understanding how modern chess engines leverage deep learning for superhuman performance and pure logic evaluation...
-                    </p>
-                    <a href="https://stanislavorlov.hashnode.dev/deep-dive-neural-networks-in-game-ai" target="_blank" rel="noopener noreferrer"
-                        class="blog-link">Read more →</a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sponsorship Section -->
-    <section id="sponsor" class="section sponsor-section" style="display: none;">
-        <div class="container">
-            <div class="sponsor-card">
-                <div class="section-title">
-                    <span>05.</span>
-                    <h2>Support My Research</h2>
+                    <a href="https://stanislavorlov.hashnode.dev" target="_blank" rel="noopener noreferrer"
+                        class="text-link">All posts <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <div class="sponsor-tiers">
-                    <div class="tier">
-                        <h3>☕ Coffee Supporter</h3>
+                <!-- Fallback content; replaced by latest-posts.json in main.js -->
+                <div class="post-list" id="blogGrid">
+                    <article class="post">
+                        <div class="post-meta">Oct 15, 2026 &middot; 1 min read</div>
+                        <div class="post-body">
+                            <h3><a href="https://stanislavorlov.hashnode.dev/building-an-online-maps-project-based-on-spatial-graph-routing"
+                                    target="_blank" rel="noopener noreferrer">Building an online maps project based on
+                                    Spatial Graph Routing</a></h3>
+                            <p>I'm building a web project to visualize routing algorithms on a simple map of London.
+                                The routing engine is built upon custom data structures, spatial indexes, and graph
+                                algorithms...</p>
+                        </div>
+                    </article>
+
+                    <article class="post">
+                        <div class="post-meta">Jan 23, 2026 &middot; 4 min read</div>
+                        <div class="post-body">
+                            <h3><a href="https://stanislavorlov.hashnode.dev/communication-protocols-for-iot-a-comparative-study"
+                                    target="_blank" rel="noopener noreferrer">Communication Protocols for IoT: A
+                                    Comparative Study</a></h3>
+                            <p>Introduction: The Constraints of the Edge The Internet of Things (IoT) operates under
+                                constraints that traditional enterprise software rarely faces: intermittent network
+                                connectivity, limited battery...</p>
+                        </div>
+                    </article>
+
+                    <article class="post">
+                        <div class="post-meta">Jan 23, 2026 &middot; 6 min read</div>
+                        <div class="post-body">
+                            <h3><a href="https://stanislavorlov.hashnode.dev/deep-dive-neural-networks-in-game-ai"
+                                    target="_blank" rel="noopener noreferrer">Deep Dive: Neural Networks in Game AI</a>
+                            </h3>
+                            <p>Introduction: The Silent Revolution on the 64 Squares For decades, chess was the
+                                ultimate benchmark for artificial intelligence. It represented a closed system composed
+                                of pure logic, immense complexi...</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsorship Section -->
+        <section id="sponsor" class="section" style="display: none;">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Sponsor</p>
+                    <h2>Support my research</h2>
+                </div>
+
+                <div class="card-grid card-grid-3">
+                    <div class="card tier">
+                        <h3>Coffee Supporter</h3>
                         <p class="tier-price">$5/month</p>
                         <ul>
                             <li>Sponsor badge</li>
                             <li>Early access to blog posts</li>
                         </ul>
                     </div>
-                    <div class="tier featured">
-                        <h3>🚀 Project Backer</h3>
+                    <div class="card tier featured">
+                        <h3>Project Backer</h3>
                         <p class="tier-price">$25/month</p>
                         <ul>
                             <li>All previous benefits</li>
@@ -388,8 +335,8 @@
                             <li>Monthly updates</li>
                         </ul>
                     </div>
-                    <div class="tier">
-                        <h3>💎 Research Partner</h3>
+                    <div class="card tier">
+                        <h3>Research Partner</h3>
                         <p class="tier-price">$100/month</p>
                         <ul>
                             <li>All previous benefits</li>
@@ -399,62 +346,72 @@
                     </div>
                 </div>
 
-                <div class="sponsor-buttons">
+                <div class="hero-actions sponsor-buttons">
                     <a href="https://github.com/sponsors/stanislavorlov" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-sponsor">
-                        <i class="fas fa-heart"></i>
-                        Sponsor on GitHub
-                    </a>
+                        class="btn btn-primary"><i class="fas fa-heart"></i> Sponsor on GitHub</a>
                     <a href="https://ko-fi.com/stanislavorlov" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-secondary">
-                        <i class="fas fa-coffee"></i>
-                        Buy me a coffee
-                    </a>
+                        class="btn btn-secondary"><i class="fas fa-coffee"></i> Buy me a coffee</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container contact-container">
-            <div class="contact-card glass fade-in" style="background: var(--bg-secondary);">
-                <div class="section-title centered">
-                    <span>05.</span>
-                    <h2>Get In Touch</h2>
-                </div>
-                <p class="section-subtitle"
-                    style="margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container contact">
+                <p class="eyebrow">Contact</p>
+                <h2>Let's work together</h2>
+                <p class="contact-text">
                     Whether you're interested in building high-performance distributed systems, complex architectural
-                    patterns, or just
-                    want to chat about software engineering and my AI research, I'm always open to discussing new ideas,
-                    collaborations, or
-                    speaking opportunities. Feel free to reach out via any of the channels below!
+                    patterns, or just want to chat about software engineering and my AI research, I'm always open to
+                    discussing new ideas, collaborations, or speaking opportunities.
                 </p>
-                <div class="footer-links" style="justify-content: center; margin-bottom: 2.5rem;">
-                    <a href="https://github.com/stanislavorlov" target="_blank" rel="noopener noreferrer"><i
-                            class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/stanislav-orlov-95569499/" target="_blank"
-                        rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://orcid.org/0009-0008-0680-206X" target="_blank" rel="noopener noreferrer"><i
-                            class="fab fa-orcid"></i></a>
-                    <a href="https://twitter.com/stasorlov21" target="_blank" rel="noopener noreferrer"><i
-                            class="fab fa-twitter"></i></a>
-                </div>
-                <a href="mailto:stasorlov21@gmail.com" class="btn btn-primary">Say Hello 👋</a>
+                <a href="mailto:stasorlov21@gmail.com" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> stasorlov21@gmail.com
+                </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="section">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>© <span id="currentYear"></span> Stanislav Orlov. All rights reserved.</p>
+        <!-- Ukraine Support Section -->
+        <section id="ukraine" class="section ukraine-section">
+            <div class="container">
+                <div class="ukraine-banner">
+                    <div class="flag" aria-hidden="true">
+                        <div class="blue"></div>
+                        <div class="yellow"></div>
+                    </div>
+                    <div class="ukraine-text">
+                        <h3>Stand with Ukraine</h3>
+                        <p>As a Ukrainian engineer, I am committed to supporting my country. Join me in contributing
+                            to reliable organizations providing humanitarian and defense support.</p>
+                    </div>
+                    <div class="ukraine-actions">
+                        <a href="https://u24.gov.ua/" class="btn btn-secondary btn-sm" target="_blank"
+                            rel="noopener noreferrer">United24</a>
+                        <a href="https://savelife.in.ua/en/" class="btn btn-secondary btn-sm" target="_blank"
+                            rel="noopener noreferrer">Come Back Alive</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; <span id="currentYear"></span> Stanislav Orlov</p>
+            <div class="footer-links">
+                <a href="https://github.com/stanislavorlov" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/stanislav-orlov-95569499/" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://orcid.org/0009-0008-0680-206X" target="_blank" rel="noopener noreferrer"
+                    aria-label="ORCID"><i class="fab fa-orcid"></i></a>
+                <a href="https://twitter.com/stasorlov21" target="_blank" rel="noopener noreferrer"
+                    aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="assets/main.js?v=2"></script>
+    <script src="assets/main.js?v=4"></script>
 
 </body>
 
