@@ -54,6 +54,60 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error fetching GitHub data:', error);
         });
 
+    // Fetch and dynamically render latest blog posts
+    const blogGrid = document.getElementById('blogGrid');
+    if (blogGrid) {
+        fetch('./latest-posts.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to load latest-posts.json');
+                return response.json();
+            })
+            .then(posts => {
+                if (!Array.isArray(posts) || posts.length === 0) return;
+
+                function escapeHtml(str) {
+                    if (!str) return '';
+                    return String(str)
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;')
+                        .replace(/'/g, '&#039;');
+                }
+
+                blogGrid.innerHTML = posts.map(item => {
+                    const post = item.node || item;
+                    const dateObj = post.publishedAt ? new Date(post.publishedAt) : null;
+                    const formattedDate = dateObj && !isNaN(dateObj)
+                        ? dateObj.toISOString().split('T')[0]
+                        : (post.publishedAt || '');
+                    const readTime = post.readTimeInMinutes
+                        ? `${post.readTimeInMinutes} min read`
+                        : '5 min read';
+                    const brief = post.brief ? post.brief.trim() : '';
+                    const excerpt = brief.length > 160 ? brief.slice(0, 160) + '...' : brief;
+
+                    return `
+                <article class="blog-card">
+                    <div class="blog-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="blog-meta">
+                        <span>${escapeHtml(formattedDate)}</span>
+                        <span>•</span>
+                        <span>${escapeHtml(readTime)}</span>
+                    </div>
+                    <h3 class="blog-title">${escapeHtml(post.title)}</h3>
+                    <p class="blog-excerpt">${escapeHtml(excerpt)}</p>
+                    <a href="${escapeHtml(post.url)}" target="_blank" rel="noopener noreferrer" class="blog-link">Read more →</a>
+                </article>`;
+                }).join('');
+            })
+            .catch(error => {
+                console.warn('Could not load latest-posts.json, keeping fallback posts:', error);
+            });
+    }
+
     // Close mobile menu when clicking a link
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
