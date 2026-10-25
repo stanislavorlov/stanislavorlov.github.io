@@ -1,9 +1,18 @@
 [
   {
     "node": {
+      "title": "Building an online maps project based on Spatial Graph Routing: Part 2",
+      "url": "https://stanislavorlov.hashnode.dev/building-an-online-maps-project-based-on-spatial-graph-routing-part-2",
+      "brief": "This is part 2 of a series of articles related to building online maps, which will describe algorithms in details. I have started with Dijkstra's algorithm…",
+      "publishedAt": "Sun, 18 Oct 2026 16:08:47 GMT",
+      "readTimeInMinutes": 5
+    }
+  },
+  {
+    "node": {
       "title": "Building an online maps project based on Spatial Graph Routing",
       "url": "https://stanislavorlov.hashnode.dev/building-an-online-maps-project-based-on-spatial-graph-routing",
-      "brief": "I'm building a web project to visualize routing algorithms on a simple map of London. The routing engine is built upon custom data structures, spatial indexes, and graph algorithms. The project's core",
+      "brief": "I'm building a web project to visualize routing algorithms on a simple map of London. The routing engine is built upon custom data structures, spatial…",
       "publishedAt": "Thu, 15 Oct 2026 17:29:56 GMT",
       "readTimeInMinutes": 1
     }
@@ -12,18 +21,9 @@
     "node": {
       "title": "Communication Protocols for IoT: A Comparative Study",
       "url": "https://stanislavorlov.hashnode.dev/communication-protocols-for-iot-a-comparative-study",
-      "brief": "Introduction: The Constraints of the Edge The Internet of Things (IoT) operates under constraints that traditional enterprise software rarely faces: intermittent network connectivity, limited battery life, and constrained processing power. In this en...",
+      "brief": "Analyzing Latency, Throughput, and Reliability through the Lens of Data Serialization",
       "publishedAt": "Fri, 23 Jan 2026 13:39:50 GMT",
       "readTimeInMinutes": 4
-    }
-  },
-  {
-    "node": {
-      "title": "Deep Dive: Neural Networks in Game AI",
-      "url": "https://stanislavorlov.hashnode.dev/deep-dive-neural-networks-in-game-ai",
-      "brief": "Introduction: The Silent Revolution on the 64 Squares For decades, chess was the ultimate benchmark for artificial intelligence. It represented a closed system composed of pure logic, immense complexity, and a clear definition of victory. The goal wa...",
-      "publishedAt": "Fri, 23 Jan 2026 13:20:52 GMT",
-      "readTimeInMinutes": 6
     }
   }
 ]

@@ -1,5 +1,16 @@
 [
   {
+    "title": "PhD Research Swarm Drones",
+    "description": "Core algorithms for swarm of drones",
+    "url": "https://github.com/stanislavorlov/phd-research-swarm-drones",
+    "language": "Python",
+    "tags": [
+      "Python"
+    ],
+    "stars": 0,
+    "pushedAt": "2026-10-24T16:12:13Z"
+  },
+  {
     "title": "Geo Maps",
     "description": "Implementation of online maps using data structures",
     "url": "https://github.com/stanislavorlov/geo-maps",
@@ -9,17 +20,6 @@
     ],
     "stars": 0,
     "pushedAt": "2026-10-15T16:28:22Z"
-  },
-  {
-    "title": "PhD Research Swarm Drones",
-    "description": "Core algorithms for swarm of drones",
-    "url": "https://github.com/stanislavorlov/phd-research-swarm-drones",
-    "language": "Python",
-    "tags": [
-      "Python"
-    ],
-    "stars": 0,
-    "pushedAt": "2026-09-25T09:57:40Z"
   },
   {
     "title": "Chess Game",
